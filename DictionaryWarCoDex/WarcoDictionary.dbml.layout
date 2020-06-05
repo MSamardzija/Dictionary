@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="WarcoDictionary">
+  <DataContextMoniker Name="/WarcoDictionaryDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8ea01856-35cb-46f4-a2cf-4ba5e5c2af15" absoluteBounds="3.5, 1.625, 2, 1.5785953775048256">
+      <DataClassMoniker Name="/WarcoDictionaryDataContext/Dictionary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a922dcb2-34f7-4dd6-a43d-4d77af4a9197" absoluteBounds="3.5150000005960464, 2.0850000008940697, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7727e2e-4227-4487-8174-b4e2c50f566d" absoluteBounds="3.5, 3.875, 2, 2.3478011060506105">
+      <DataClassMoniker Name="/WarcoDictionaryDataContext/Test" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a60e4900-9c16-46c3-9411-d9f9bf7989b2" absoluteBounds="3.5150000005960464, 4.33500000089407, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9d61e3cd-b820-4509-ae83-f8b95107659e" absoluteBounds="0.75, 2.875, 2, 2.1554996743798251">
+      <DataClassMoniker Name="/WarcoDictionaryDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d945ac26-7925-4fdf-9270-385bad1a7e81" absoluteBounds="0.76500000059604645, 3.3350000008940697, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.71875 : 2.875); (2.71875 : 2.44074575651042); (3.5 : 2.44074575651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WarcoDictionaryDataContext/User/User_Dictionary" />
+      <nodes>
+        <classShapeMoniker Id="9d61e3cd-b820-4509-ae83-f8b95107659e" />
+        <classShapeMoniker Id="8ea01856-35cb-46f4-a2cf-4ba5e5c2af15" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.45274983718991); (3.5 : 4.45274983718991)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/WarcoDictionaryDataContext/User/User_Test" />
+      <nodes>
+        <classShapeMoniker Id="9d61e3cd-b820-4509-ae83-f8b95107659e" />
+        <classShapeMoniker Id="a7727e2e-4227-4487-8174-b4e2c50f566d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a6ab074b-d065-4d8f-ba38-7bd1e4ec923e" absoluteBounds="9, 3.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/WarcoDictionaryDataContext/Result" />
+      <nestedChildShapes>
+        <elementListCompartment Id="436ed525-eb36-43d9-84ca-6ee6c3343ff6" absoluteBounds="9.015, 3.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 5.66270182255656); (10.09375 : 5.66270182255656); (10.09375 : 4.95359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WarcoDictionaryDataContext/Test/Test_Result" />
+      <nodes>
+        <classShapeMoniker Id="a7727e2e-4227-4487-8174-b4e2c50f566d" />
+        <classShapeMoniker Id="a6ab074b-d065-4d8f-ba38-7bd1e4ec923e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ce48c746-272e-4b61-9e18-6818ccb86469" absoluteBounds="0.625, 0.75, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/WarcoDictionaryDataContext/EngSrbPackage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="420d85df-dbf6-4e02-b2b9-9477711aed03" absoluteBounds="0.64, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b23da884-2003-4b23-b339-00471e11dc26" absoluteBounds="6.25, 1.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/WarcoDictionaryDataContext/Word" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9dc020d0-135a-47ab-9e4d-711fdf2f1d82" absoluteBounds="6.265, 2.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 3.83255126953125); (9 : 3.83255126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WarcoDictionaryDataContext/Word/Word_Result" />
+      <nodes>
+        <classShapeMoniker Id="b23da884-2003-4b23-b339-00471e11dc26" />
+        <classShapeMoniker Id="a6ab074b-d065-4d8f-ba38-7bd1e4ec923e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.47679768875241); (6.25 : 2.47679768875241)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WarcoDictionaryDataContext/Dictionary/Dictionary_Word" />
+      <nodes>
+        <classShapeMoniker Id="8ea01856-35cb-46f4-a2cf-4ba5e5c2af15" />
+        <classShapeMoniker Id="b23da884-2003-4b23-b339-00471e11dc26" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.53929768875241); (6.25 : 3.53929768875241)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/WarcoDictionaryDataContext/User/User_Word" />
+      <nodes>
+        <classShapeMoniker Id="9d61e3cd-b820-4509-ae83-f8b95107659e" />
+        <classShapeMoniker Id="b23da884-2003-4b23-b339-00471e11dc26" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

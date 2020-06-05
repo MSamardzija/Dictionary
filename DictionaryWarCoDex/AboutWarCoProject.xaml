@@ -1,0 +1,17 @@
+﻿<Window x:Class="DictionaryWarCoDex.AboutWarCoProject"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DictionaryWarCoDex"
+        mc:Ignorable="d" Title="About Software"
+        Height="264.333" Width="347.704" ResizeMode="NoResize" Margin="0" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF2A2E33">
+        <Image Source="Imgs/FirstLogoBYME.png" Height="300" Margin="14,-81,14,0" VerticalAlignment="Top"/>
+        <TextBlock Foreground="AliceBlue" HorizontalAlignment="Left" Margin="46,128,0,0" TextWrapping="Wrap" Text="This product is made by: Marko Samardzija" VerticalAlignment="Top" FontWeight="ExtraBold" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_2"/>
+        <Button Content="OK" Click="Button_Click" Margin="120,162,120,0" VerticalAlignment="Top"/>
+        <TextBlock Foreground="LightBlue" Text="Release Notes" HorizontalAlignment="Left" Margin="25,206,0,0" FontWeight="ExtraBold" Height="17" VerticalAlignment="Top" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+        <TextBlock Foreground="LightBlue" FontWeight="ExtraBold" Margin="274,206,25,0" TextWrapping="Wrap" Text="License" Height="17" VerticalAlignment="Top" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp_1"/>
+
+    </Grid>
+</Window>

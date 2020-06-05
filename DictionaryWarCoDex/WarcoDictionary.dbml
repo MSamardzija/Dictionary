@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Dictionary" Class="WarcoDictionaryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-GML16NG\MSSQLSERVER1;Initial Catalog=Dictionary;Integrated Security=True" SettingsObjectName="DictionaryWarCoDex.Properties.Settings" SettingsPropertyName="DictionaryConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Dictionary" Member="Dictionaries">
+    <Type Name="Dictionary">
+      <Column Name="DictionaryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DictionaryName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfCreation" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Dictionary_Word" Member="Words" ThisKey="DictionaryID" OtherKey="DictionaryID" Type="Word" />
+      <Association Name="User_Dictionary" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Test" Member="Tests">
+    <Type Name="Test">
+      <Column Name="TestID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameOfTest" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfTest" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PercentageOfCorrect" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Correct" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Inccorect" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumberOfWordsTested" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Test_Result" Member="Results" ThisKey="TestID" OtherKey="TestID" Type="Result" />
+      <Association Name="User_Test" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="User_Dictionary" Member="Dictionaries" ThisKey="UserID" OtherKey="UserID" Type="Dictionary" />
+      <Association Name="User_Test" Member="Tests" ThisKey="UserID" OtherKey="UserID" Type="Test" />
+      <Association Name="User_Word" Member="Words" ThisKey="UserID" OtherKey="UserID" Type="Word" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Results" Member="Results">
+    <Type Name="Result">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WordID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Correct" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TestID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Test_Result" Member="Test" ThisKey="TestID" OtherKey="TestID" Type="Test" IsForeignKey="true" />
+      <Association Name="Word_Result" Member="Word" ThisKey="WordID" OtherKey="WordID" Type="Word" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EngSrbPackage" Member="EngSrbPackages">
+    <Type Name="EngSrbPackage">
+      <Column Name="Word" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Meaning" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Words" Member="Words">
+    <Type Name="Word">
+      <Column Name="WordID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WordMain" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pronouncement" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="WordTranslated" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfInput" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Rating" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="DictionaryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Word_Result" Member="Results" ThisKey="WordID" OtherKey="WordID" Type="Result" />
+      <Association Name="Dictionary_Word" Member="Dictionary" ThisKey="DictionaryID" OtherKey="DictionaryID" Type="Dictionary" IsForeignKey="true" />
+      <Association Name="User_Word" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
