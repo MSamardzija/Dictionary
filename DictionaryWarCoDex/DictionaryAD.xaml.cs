@@ -23,11 +23,11 @@ namespace DictionaryWarCoDex
         public DictionaryAD()
         {
             InitializeComponent();
-            PuniListView();
+            FillUpListView();
             ToolTipShow();
         }
 
-        private void PuniListView()
+        private void FillUpListView()
         {
             var pom = from s in DC.Dictionaries
                       where s.UserID == LoginUserData.UseridLOG
@@ -36,10 +36,10 @@ namespace DictionaryWarCoDex
         }
         private void ToolTipShow()
         {//Navodi da postoji conteksni meni...
-            ToolTip tool = new ToolTip { Content = "Right click to rename or remove" };
+            ToolTip tool = new ToolTip { Content = "Right click on item to rename or remove" };
             listView1.ToolTip = tool;
             tool.PlacementTarget = listView1;
-            tool.Placement = System.Windows.Controls.Primitives.PlacementMode.Center;
+            tool.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
             tool.IsOpen = true;
         }
 
@@ -47,30 +47,25 @@ namespace DictionaryWarCoDex
         {
             if (!String.IsNullOrWhiteSpace(tbNameOfNewDictionary.Text))
             {
-                if (listView1.Items.Contains(tbNameOfNewDictionary.Text.Trim()))
-                    MessageBox.Show("You already have " + tbNameOfNewDictionary.Text.Trim() + "in your Dictionary!");
-                else
+                Dictionary pom = new Dictionary
                 {
-                    Dictionary pom = new Dictionary
-                    {
-                        DictionaryName = tbNameOfNewDictionary.Text.Trim(),
-                        DateOfCreation = DateTime.Today,
-                        UserID = LoginUserData.UseridLOG
-                    };
-                    try
-                    {
-                        DC.Dictionaries.InsertOnSubmit(pom);
-                        DC.SubmitChanges();
-                        tbNameOfNewDictionary.Clear();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Error!");
-                    }
-                    finally
-                    {
-                        PuniListView();
-                    }
+                    DictionaryName = tbNameOfNewDictionary.Text.Trim(),
+                    DateOfCreation = DateTime.Today,
+                    UserID = LoginUserData.UseridLOG
+                };
+                try
+                {
+                    DC.Dictionaries.InsertOnSubmit(pom);
+                    DC.SubmitChanges();
+                    tbNameOfNewDictionary.Clear();
+                }
+                catch
+                {
+                    MessageBox.Show("Error!");
+                }
+                finally
+                {
+                    FillUpListView();
                 }
             }
             else
@@ -80,7 +75,7 @@ namespace DictionaryWarCoDex
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void BtnDeleteCM(object sender, RoutedEventArgs e)
         {//Ako u recniku ima reci pitace dal da brise sve reci iz tog recnika a ako nema obrisace odma recnik
             //Puca ako se ne izabere nista !
             var kkk = from p in DC.Words.AsEnumerable()
@@ -117,7 +112,7 @@ namespace DictionaryWarCoDex
                     }
                     finally
                     {
-                        PuniListView();
+                        FillUpListView();
                     }
                 }
             }
@@ -127,7 +122,7 @@ namespace DictionaryWarCoDex
                 {
                     Dictionary pom = (from s in DC.Dictionaries
                                       where s.DictionaryID == (int)listView1.SelectedValue
-                                      select s).FirstOrDefault();
+                                      select s).First();
                     DC.Dictionaries.DeleteOnSubmit(pom);
                     DC.SubmitChanges();
                     MessageBox.Show("Selected item is deleted");
@@ -138,14 +133,13 @@ namespace DictionaryWarCoDex
                 }
                 finally
                 {
-                    PuniListView();
+                    FillUpListView();
                 }
             }
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void BtnRenameCM(object sender, RoutedEventArgs e)
         {
-            //tbNameOfNewDictionary.Text = listView1.SelectedItem.ToString();  // Ovo nesto nece :(((
             btnAddNewDictionary.Visibility = Visibility.Hidden;
             btnRename.Visibility = Visibility.Visible;
             tbNameOfNewDictionary.Focus();
@@ -154,8 +148,8 @@ namespace DictionaryWarCoDex
 
         private void BtnRename_Click(object sender, RoutedEventArgs e)
         {
-            if (tbNameOfNewDictionary.Text == "")
-                MessageBox.Show("Text box can not be empty");
+            if (String.IsNullOrWhiteSpace(tbNameOfNewDictionary.Text))
+                MessageBox.Show("Textbox can't be empty");
             else
             {
                 btnRename.Visibility = Visibility.Hidden;
@@ -163,14 +157,13 @@ namespace DictionaryWarCoDex
 
                 var pom = (from s in DC.Dictionaries
                            where s.DictionaryID == (int)listView1.SelectedValue
-                           select s).FirstOrDefault();
+                           select s).First();
                 pom.DictionaryName = tbNameOfNewDictionary.Text;
                 try
                 {
                     DC.SubmitChanges();
                     MessageBox.Show("You renamed your Dictionary !");
                     tbNameOfNewDictionary.Clear();
-
                 }
                 catch (Exception)
                 {
@@ -178,7 +171,7 @@ namespace DictionaryWarCoDex
                 }
                 finally
                 {
-                    PuniListView();
+                    FillUpListView();
                 }
             }
         }

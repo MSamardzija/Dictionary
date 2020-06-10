@@ -79,16 +79,16 @@ namespace DictionaryWarCoDex
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
+            //Testing
             if (dataGrid1.Items.Count >= 10)
             {
                 TestingSettings main = new TestingSettings();
                 this.Close();
                 main.ShowDialog();
-
             }
             else
                 System.Windows.MessageBox.Show("You need at least 10 words in your dictionary to do testing \n" +
-                    "So far you have: " + (dataGrid1.Items.Count) + " words !", "Minimum 10 words !", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    "So far you have: " + (dataGrid1.Items.Count) + " words !", "Minimum is 10 words !", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
@@ -105,6 +105,19 @@ namespace DictionaryWarCoDex
             this.Close();
             pom.ShowDialog();
         }
+        
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            DictionaryPackages packages = new DictionaryPackages();
+            if (packages.CbDictionary.HasItems)
+            {
+                packages.ShowDialog();
+                PuniDataGrid();
+            }
+            else
+                MessageBox.Show("Please make sure you have dictionary !");
+        }
+
         /// 
         /// Context Menu buttons
         /// 
@@ -123,7 +136,6 @@ namespace DictionaryWarCoDex
                     this.Close();
                     main.Show();
                     QuizzDictionary.EmptyWord();
-
                 }
                 catch(Exception)
                 {
@@ -193,7 +205,6 @@ namespace DictionaryWarCoDex
 
         private void FilterDictionary_Click(object sender, RoutedEventArgs e)
         {
-
             if (CbDictionaryMain.Visibility == Visibility.Visible)
             {
                 CbDictionaryMain.Visibility = Visibility.Hidden;
@@ -219,19 +230,6 @@ namespace DictionaryWarCoDex
                       where s.DictionaryID == (int)CbDictionaryMain.SelectedValue
                       select s;
             dataGrid1.ItemsSource = pom ;
-        }
-
-        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
-        {
-            DictionaryPackages packages = new DictionaryPackages();
-            if (packages.CbDictionary.HasItems)
-            {
-                packages.ShowDialog();
-                PuniDataGrid();
-            }
-            else
-                MessageBox.Show("Please make sure you have dictionary !");
-
         }
 
         private void TbSearch_KeyUp(object sender, KeyEventArgs e)

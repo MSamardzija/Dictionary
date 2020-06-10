@@ -1,0 +1,9 @@
+===================================================================================================================
+-- 20/3/2020				Dictionary 1.0							By:WarCod3x
+	-At this point program had four forms. (Login, MainForm,Words,Dictionary)
+	-Database was made of 3 tables (Users, Words, DIctionary)
+-- 24/3/2020--
+	-Bugs Fixed
+===================================================================================================================
+
+-- 03/6/2020--		Dictionary 5.0		By:WarCodex

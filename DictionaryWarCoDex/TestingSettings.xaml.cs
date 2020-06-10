@@ -140,7 +140,7 @@ namespace DictionaryWarCoDex
             //Omogucava izbor datuma od kad je korisnik uneo prvu rec
             var p = (from s in DC.Words
                      where s.UserID == LoginUserData.UseridLOG
-                     select s.DateOfInput).Min();//Mozda moze da selektuje sve koji postoje ? Ne mora ovo radi sasvim dovoljno
+                     select s.DateOfInput).Min();
             DpOneDictionary.DisplayDateStart = p;
         }
 

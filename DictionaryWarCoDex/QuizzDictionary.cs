@@ -8,12 +8,6 @@ namespace DictionaryWarCoDex
 {
     public static class QuizzDictionary
     {
-        /*        public static string MainWord;
-                public static string TranslatedWord;
-                public static string Description;
-                public static string Prounouncement;
-                public static int ID;*/
-
         public static Word word = new Word();
 
         public static Dictionary<string, string> nova = new Dictionary<string, string>();

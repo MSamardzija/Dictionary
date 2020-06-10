@@ -44,12 +44,12 @@ namespace DictionaryWarCoDex
                     {
                         DC.Users.InsertOnSubmit(newUser);
                         DC.SubmitChanges();
-                        MessageBox.Show("Registration is successful. Thank you " + tbUsername.Text + "Please now log in!");
+                        MessageBox.Show("Welcome" + tbUsername.Text + "\nYou can now log in!", "Registration is successful", MessageBoxButton.OK);
                         this.Close();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show("Oh Something went wrong here ! " + ex);
+                        MessageBox.Show("Oh Something went wrong here !");
                     }
                 }
                 else

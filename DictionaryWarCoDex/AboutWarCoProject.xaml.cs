@@ -28,20 +28,21 @@ namespace DictionaryWarCoDex
         {
             this.Close();
         }
+        public string theDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
         private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Process.Start("C:/Users/mares/Desktop/Recnik/Dictionary/Dictionary/About/release_notes.txt");
+            Process.Start(theDirectory + @"..\..\About\release_notes.docx");
         }
 
         private void TextBlock_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
         {
-            Process.Start("C:/Users/mares/Desktop/Recnik/Dictionary/Dictionary/About/License.txt");
+            Process.Start(theDirectory + @"..\..\About\License.txt");
         }
 
         private void TextBlock_MouseLeftButtonUp_2(object sender, MouseButtonEventArgs e)
         {
-            Process.Start("C:/Users/mares/Desktop/Recnik/Dictionary/Dictionary/About/Contact.txt");
+            Process.Start(theDirectory + @"..\..\About\MadeBy.txt");
         }
     }
 }

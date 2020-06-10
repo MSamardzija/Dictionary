@@ -46,7 +46,7 @@ namespace DictionaryWarCoDex
             {
                 var pom = (from s in DC.Users
                            where s.Username == LoginUserData.UserNameLOG
-                           select s).FirstOrDefault();
+                           select s).First();
                 if (!String.IsNullOrEmpty(tbEmail.Text))
                     pom.Email = tbEmail.Text;
                 if (!String.IsNullOrEmpty(tbFirstName.Text))

@@ -9,13 +9,13 @@
     <Grid Background="#FF2A2E33">
         <TextBlock Foreground="AliceBlue" FontWeight="Bold" Margin="40,119,0,0" TextWrapping="Wrap" Text="Your dictionary list:" VerticalAlignment="Top" HorizontalAlignment="Left" Width="121" Height="19"/>
         <TextBlock Foreground="AliceBlue" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,45,0,0" TextWrapping="Wrap" Text="Name of new Dictionary" VerticalAlignment="Top"/>
-        <TextBox Foreground="AliceBlue" Background="#1b2838" Name="tbNameOfNewDictionary" HorizontalAlignment="Left" Height="22" Margin="40,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" Text="{Binding DictionaryID}"/>
+        <TextBox Foreground="AliceBlue" Background="#1b2838" Name="tbNameOfNewDictionary" HorizontalAlignment="Left" Height="22" Margin="40,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246"/>
         <Button Name="btnAddNewDictionary" Click="BtnAddNewDictionary_Click" Background="#FF3C424A" Foreground="AliceBlue" Content="Add" HorizontalAlignment="Left" Margin="331,70,0,0" VerticalAlignment="Top" Width="74"/>
         <ListView SelectedValuePath="DictionaryID" DisplayMemberPath="DictionaryName" Name="listView1" Background="#FF2A2E33" Foreground="AliceBlue" BorderBrush="LightBlue" HorizontalAlignment="Left" Height="150" Margin="40,154,0,0" VerticalAlignment="Top" Width="360" ToolTip="">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Remove" Click="MenuItem_Click"/>
-                    <MenuItem Header="Rename" Click="MenuItem_Click_1"/>
+                    <MenuItem Header="Remove" Click="BtnDeleteCM"/>
+                    <MenuItem Header="Rename" Click="BtnRenameCM"/>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>

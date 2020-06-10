@@ -22,7 +22,7 @@ namespace DictionaryWarCoDex
             InitializeComponent();
             tbUsername.Focus();
         }
-
+        
         private void BtnCancle_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -34,13 +34,12 @@ namespace DictionaryWarCoDex
             {
                 try
                 {
-                    var pom = (from s in DC.Users
+                    User pom = (from s in DC.Users
                                where s.Username == tbUsername.Text
                                && s.Password == PasswordBox1.Password
                                select s).First();
                     if (pom != null)
                     {
-
                         LoginUserData.UserNameLOG = pom.Username;
                         LoginUserData.UseridLOG = pom.UserID;
                         LoginUserData.UserPassLOG = pom.Password;
