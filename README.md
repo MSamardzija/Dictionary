@@ -45,9 +45,11 @@ Password: 123123
 
 ![Searcing and Filtering](Slike/Gif/SearchNFilting.gif)
 
-### Making a Quiz
+### Making Quiz Form
 
 <img src="Slike/KreiranjeKviza.jpg">
+
+### Making & solving quiz and checking results after quiz is done. 
 
 ![Making and Performing Quiz](Slike/Gif/Testing.gif)
 
@@ -63,7 +65,7 @@ Password: 123123
 
 <img src="Slike/PodesavanjeNaloga.jpg">
 
-### About this program
+### About this software
 
 <img src="Slike/About.jpg">
 
